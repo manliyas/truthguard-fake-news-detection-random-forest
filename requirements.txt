@@ -1,0 +1,9 @@
+streamlit==1.47.1
+scikit-learn==1.7.2
+joblib==1.5.2
+nltk==3.9.2
+requests==2.32.4
+langdetect==1.0.9
+deep-translator==1.11.4
+duckduckgo-search==8.0.1
+feedparser==6.0.11
