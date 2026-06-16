@@ -62,16 +62,54 @@ mistakes that existed in the fake news were kept in the text.
 The following table gives a breakdown of the categories and number of articles
 per category.
 
-| News | Size (Number of articles) | Type | Articles size |
-|---|---:|---|---:|
-| Real-News | 21,417 | World-News | 10,145 |
-| Real-News | 21,417 | Politics-News | 11,272 |
-| Fake-News | 23,481 | Government-News | 1,570 |
-| Fake-News | 23,481 | Middle-east | 778 |
-| Fake-News | 23,481 | US News | 783 |
-| Fake-News | 23,481 | left-news | 4,459 |
-| Fake-News | 23,481 | politics | 6,841 |
-| Fake-News | 23,481 | News | 9,050 |
+<table>
+  <thead>
+    <tr>
+      <th>News</th>
+      <th>Size<br>(Number of articles)</th>
+      <th>Type</th>
+      <th>Articles size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2"><strong>Real-News</strong></td>
+      <td rowspan="2">21,417</td>
+      <td>World-News</td>
+      <td>10,145</td>
+    </tr>
+    <tr>
+      <td>Politics-News</td>
+      <td>11,272</td>
+    </tr>
+    <tr>
+      <td rowspan="6"><strong>Fake-News</strong></td>
+      <td rowspan="6">23,481</td>
+      <td>Government-News</td>
+      <td>1,570</td>
+    </tr>
+    <tr>
+      <td>Middle-east</td>
+      <td>778</td>
+    </tr>
+    <tr>
+      <td>US News</td>
+      <td>783</td>
+    </tr>
+    <tr>
+      <td>left-news</td>
+      <td>4,459</td>
+    </tr>
+    <tr>
+      <td>politics</td>
+      <td>6,841</td>
+    </tr>
+    <tr>
+      <td>News</td>
+      <td>9,050</td>
+    </tr>
+  </tbody>
+</table>
 
 ![Dataset subject distribution](assets/dataset_subject_distribution.png)
 
