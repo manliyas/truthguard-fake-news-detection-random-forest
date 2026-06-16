@@ -146,6 +146,31 @@ Confusion matrix from the notebook:
  [  25 5348]]
 ```
 
+<details>
+<summary>Raw notebook evaluation output</summary>
+
+```text
+Accuracy: 0.9969314694851688
+
+Classification Report:
+
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      6359
+           1       1.00      1.00      1.00      5373
+
+    accuracy                           1.00     11732
+   macro avg       1.00      1.00      1.00     11732
+weighted avg       1.00      1.00      1.00     11732
+
+Confusion Matrix:
+
+[[6348   11]
+ [  25 5348]]
+```
+
+</details>
+
 These results show strong performance on the prepared test dataset. In the
 deployed application, the model result is still treated as an advisory writing
 pattern signal, not final proof that every claim in an article is true or
