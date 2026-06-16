@@ -41,43 +41,42 @@ sources.
 
 ## Dataset Description
 
-The model was trained using the ISOT fake news dataset, which contains real and
-fake English news articles. The dataset is stored in `archive/training/dataset/`
-as two CSV files:
+The dataset contains two types of articles fake and real News. This dataset was
+collected from real-world sources; the truthful articles were obtained by
+crawling articles from Reuters.com (News website). As for the fake news
+articles, they were collected from different sources. The fake news articles
+were collected from unreliable websites that were flagged by Politifact (a
+fact-checking organization in the USA) and Wikipedia. The dataset contains
+different types of articles on different topics, however, the majority of
+articles focus on political and World news topics.
 
-| File | Label Used by Model | Articles | Source Description |
-|---|---:|---:|---|
-| `True.csv` | `0` Real-news pattern | 21,417 | Truthful news articles collected from Reuters. |
-| `Fake.csv` | `1` Fake-news pattern | 23,481 | Fake news articles collected from unreliable sources flagged by fact-checking and public reference sources. |
-| **Total** |  | **44,898** |  |
+The dataset consists of two CSV files. The first file named "True.csv" contains
+more than 12,600 articles from reuter.com. The second file named "Fake.csv"
+contains more than 12,600 articles from different fake news outlet resources.
+Each article contains the following information: article title, text, type and
+the date the article was published on. To match the fake news data collected
+for kaggle.com, we focused mostly on collecting articles from 2016 to 2017.
+The data collected were cleaned and processed, however, the punctuations and
+mistakes that existed in the fake news were kept in the text.
 
-Each article contains the following fields:
+The following table gives a breakdown of the categories and number of articles
+per category.
 
-| Field | Description |
-|---|---|
-| `title` | News headline |
-| `text` | Full article text |
-| `subject` | News category or topic |
-| `date` | Publication date |
-
-Subject distribution:
-
-| Dataset | Subject | Articles |
-|---|---|---:|
-| Real news | politicsNews | 11,272 |
-| Real news | worldnews | 10,145 |
-| Fake news | News | 9,050 |
-| Fake news | politics | 6,841 |
-| Fake news | left-news | 4,459 |
-| Fake news | Government News | 1,570 |
-| Fake news | US_News | 783 |
-| Fake news | Middle-east | 778 |
+| News | Size (Number of articles) | Type | Articles size |
+|---|---:|---|---:|
+| Real-News | 21,417 | World-News | 10,145 |
+| Real-News | 21,417 | Politics-News | 11,272 |
+| Fake-News | 23,481 | Government-News | 1,570 |
+| Fake-News | 23,481 | Middle-east | 778 |
+| Fake-News | 23,481 | US News | 783 |
+| Fake-News | 23,481 | left-news | 4,459 |
+| Fake-News | 23,481 | politics | 6,841 |
+| Fake-News | 23,481 | News | 9,050 |
 
 ![Dataset subject distribution](assets/dataset_subject_distribution.png)
 
-The dataset is mainly focused on political and world news topics from around
-2016 to 2017. Because the dataset is English-language, Malay input in the app is
-translated to English before classification.
+Because the dataset is English-language, Malay input in the app is translated
+to English before classification.
 
 ## Model Training and Evaluation
 
