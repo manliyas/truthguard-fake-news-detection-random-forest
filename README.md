@@ -39,6 +39,81 @@ sources.
 7. Deterministic decision rules produce the final assessment.
 8. Bilingual user-awareness messages and safe sharing actions are displayed.
 
+## Dataset Description
+
+The model was trained using the ISOT fake news dataset, which contains real and
+fake English news articles. The dataset is stored in `archive/training/dataset/`
+as two CSV files:
+
+| File | Label Used by Model | Articles | Source Description |
+|---|---:|---:|---|
+| `True.csv` | `0` Real-news pattern | 21,417 | Truthful news articles collected from Reuters. |
+| `Fake.csv` | `1` Fake-news pattern | 23,481 | Fake news articles collected from unreliable sources flagged by fact-checking and public reference sources. |
+| **Total** |  | **44,898** |  |
+
+Each article contains the following fields:
+
+| Field | Description |
+|---|---|
+| `title` | News headline |
+| `text` | Full article text |
+| `subject` | News category or topic |
+| `date` | Publication date |
+
+Subject distribution:
+
+| Dataset | Subject | Articles |
+|---|---|---:|
+| Real news | politicsNews | 11,272 |
+| Real news | worldnews | 10,145 |
+| Fake news | News | 9,050 |
+| Fake news | politics | 6,841 |
+| Fake news | left-news | 4,459 |
+| Fake news | Government News | 1,570 |
+| Fake news | US_News | 783 |
+| Fake news | Middle-east | 778 |
+
+![Dataset subject distribution](assets/dataset_subject_distribution.png)
+
+The dataset is mainly focused on political and world news topics from around
+2016 to 2017. Because the dataset is English-language, Malay input in the app is
+translated to English before classification.
+
+## Model Training and Evaluation
+
+The machine learning classifier was trained in
+`archive/training/fake_news_random_forest.ipynb` using the English ISOT fake
+and real news dataset. The trained artefacts are saved as:
+
+- `random_forest_model.pkl`
+- `tfidf_vectorizer.pkl`
+
+The model uses TF-IDF text features with a Random Forest classifier. In the
+training notebook, the held-out test evaluation produced the following result:
+
+| Metric | Result |
+|---|---:|
+| Accuracy | 99.69% |
+| Test samples | 11,732 |
+| Macro average precision | 1.00 |
+| Macro average recall | 1.00 |
+| Macro average F1-score | 1.00 |
+| Weighted average precision | 1.00 |
+| Weighted average recall | 1.00 |
+| Weighted average F1-score | 1.00 |
+
+Confusion matrix from the notebook:
+
+```text
+[[6348   11]
+ [  25 5348]]
+```
+
+These results show strong performance on the prepared test dataset. In the
+deployed application, the model result is still treated as an advisory writing
+pattern signal, not final proof that every claim in an article is true or
+false.
+
 ## Final Assessments
 
 | Assessment | Meaning |
@@ -138,7 +213,7 @@ that the source is unreliable or that its reporting is false.
 ### After Analysis
 
 1. `View Submitted News`
-2. Final Assessment card
+2. `Final Assessment card`
 3. `User Awareness & Safe Sharing Guidance`
 4. `Check Another News`
 5. `Why did I get this result?`
@@ -204,6 +279,8 @@ guidance consistent and available without an external API.
 fake_news_rf_fyp - testing 3/
 |-- app.py
 |-- config.py
+|-- assets/
+|   `-- dataset_subject_distribution.png
 |-- services/
 |   |-- __init__.py
 |   |-- model_service.py
